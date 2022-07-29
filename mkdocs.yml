@@ -1,0 +1,54 @@
+site_name: Mkdocs playground
+nav:
+- Home:
+  - Overview: index.md
+  - Contributing: contributing.md
+  - Code of Conduct: code_of_conduct.md
+  - Changelog: changelog.md
+  - License: license.md
+  - About: about.md
+- Usage:
+  - Getting Started: getting-started.md
+  - Install: install.md
+  - Full Example: example.md
+  - Full Example2: example2.md
+
+theme:
+  name: 'material'
+  icon:
+    logo: material/currency-sign
+  features:
+  - navigation.tabs
+  - navigation.top
+  palette:
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: purple
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: lime
+    toggle:
+      icon: material/weather-night
+      name: Switch to light mode
+
+markdown_extensions:
+- admonition
+- pymdownx.emoji
+- pymdownx.magiclink
+- pymdownx.snippets:
+    check_paths: true
+- pymdownx.superfences
+- pymdownx.tabbed
+- pymdownx.tasklist
+- toc:
+    permalink: "¤"
+
+extra:
+  social:
+  - icon: fontawesome/brands/github
+    link: https://github.com/santhin

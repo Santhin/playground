@@ -1,0 +1,23 @@
+name: Release Management
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  draft-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get tag
+        id: get-tag
+        run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
+      - name: Draft release
+        id: release-drafter
+        uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag: ${{ steps.get-tag.outputs.tag }}
+          disable-releaser: false
+          disable-autolabeler: true

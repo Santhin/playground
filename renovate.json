@@ -1,0 +1,49 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "config:base",
+        ":rebaseStalePrs"
+    ],
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 0,
+    "labels": ["renovatebot"],
+    "packageRules": [
+        {
+            "updateTypes": [
+                "major"
+            ],
+            "addLabels": [
+                "major-update"
+            ]
+        },
+        {
+            "updateTypes": [
+                "minor"
+            ],
+            "addLabels": [
+                "minor-update"
+            ]
+        },
+        {
+            "updateTypes": [
+                "patch",
+                "digest",
+                "bump"
+            ],
+            "addLabels": [
+                "patch-update"
+            ]
+        },
+        {
+            "description": "Automatically merge minor and patch-level updates",
+            "matchUpdateTypes": [
+                "minor",
+                "patch",
+                "digest"
+            ],
+            "automerge": true,
+            "automergeType": "branch"
+        }
+    ],
+    "platformAutomerge": true
+}

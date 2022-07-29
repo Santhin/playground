@@ -1,0 +1,38 @@
+# name: Create a release
+
+# on:
+#   push:
+#     tags:
+#       - '*'
+
+# jobs:
+#   release:
+#     permissions:
+#       contents: write  # for release-drafter/release-drafter to create a github release
+#       pull-requests: write  # for release-drafter/release-drafter to add label to PR
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: version
+#         id: version
+#         run: |
+#           tag=${GITHUB_REF/refs\/tags\//}
+#           version=${tag#v}
+#           major=${version%%.*}
+#           echo "::set-output name=tag::${tag}"
+#           echo "::set-output name=version::${version}"
+#           echo "::set-output name=major::${major}"
+          
+#       - uses: release-drafter/release-drafter@v5
+#         with:
+#           version: ${{ steps.version.outputs.version }}
+#           publish: true
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+#   update-changelog:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: rhysd/changelog-from-release/action@v2
+#       with:
+#         file: CHANGELOG.md
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
