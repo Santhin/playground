@@ -21,3 +21,9 @@ jobs:
           tag: ${{ steps.get-tag.outputs.tag }}
           disable-releaser: false
           disable-autolabeler: true
+      - name: Echo release body
+        id: echo-releaser
+        run: |
+          echo "${{ steps.release-drafter.outputs.body }}"
+          echo "${{ steps.release-drafter.outputs.name }}"
+          echo "${{ steps.release-drafter.outputs.tag_name }}"
