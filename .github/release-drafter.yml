@@ -31,6 +31,8 @@ sort-by: 'title'
 
 name-template: '$RESOLVED_VERSION'
 template: |
+  ## Changes
+
   $CHANGES
 version-resolver:
   major:
