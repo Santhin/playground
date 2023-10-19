@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Append CHANGELOG.md
         run: |
           echo -e "${{ github.event.release.body }}\n$(cat CHANGELOG.md)" > CHANGELOG.md
