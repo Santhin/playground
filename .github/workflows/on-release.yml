@@ -15,7 +15,7 @@ jobs:
           echo -e "${{ github.event.release.body }}\n$(cat CHANGELOG.md)" > CHANGELOG.md
           echo -e "# ${{ github.event.release.name }}\n$(cat CHANGELOG.md)" > CHANGELOG.md
       - name: Commit and create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v6
         with:
           commit-message: update CHANGELOG.md for release ${{ github.event.release.tag_name }}
           branch: chore/update-CHANGELOG-for-release-${{ github.event.release.tag_name }}
