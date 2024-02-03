@@ -14,7 +14,7 @@ jobs:
         run: echo ::set-output name=tag::${GITHUB_REF/refs\/tags\//}
       - name: Draft release
         id: release-drafter
-        uses: release-drafter/release-drafter@v5
+        uses: release-drafter/release-drafter@v6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
